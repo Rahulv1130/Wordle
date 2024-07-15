@@ -1,6 +1,5 @@
 import { useState , useRef} from "react";
 import Header from "./Header";
-import { useNavigate } from "react-router-dom";
 
 const word = "SLICE";
 
@@ -40,12 +39,14 @@ export default function MainPage(){
 
     const [arr,setArr] = useState([]);
     const [count,setCount] = useState(0);
-    const navigate = useNavigate();
+    const [done,setDone] = useState(false);
 
+    
     function submitHandler(){
 
         if(word[0] === arr[0] && word[1] === arr[1] && word[2] === arr[2] && word[3] === arr[3] && word[4] === arr[4] ){
-            navigate("/won")
+            alert("Congratulations..!! You Won :)");
+            setDone(true);
         }
 
         if(count == 0){
@@ -471,8 +472,10 @@ export default function MainPage(){
                 ref54.current.style.backgroundColor = "#3A3A3C"
             }
 
-            setArr([]);
-            setCount(count+1);
+            if(!(word[0] === arr[0] && word[1] === arr[1] && word[2] === arr[2] && word[3] === arr[3] && word[4] === arr[4] )){
+                alert("Sorry Better Luck Next Time :(");
+                setDone(true);
+            }
         }
 
         
@@ -546,46 +549,50 @@ export default function MainPage(){
             
             
             
-            <div className="bg-black ">                                 { /* Keyboard  */ }
-                <div className="">
-                    <div className="flex pb-1.5 justify-center">
-                        <button onClick={() => setArr([...arr,'Q'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md">Q</button>
-                        <button onClick={() => setArr([...arr,'W'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">W</button>
-                        <button onClick={() => setArr([...arr,'E'])} className="ml-1 bg-key py-3 px-2.5 text-2xl font-bold text-white rounded-md ">E</button>
-                        <button onClick={() => setArr([...arr,'R'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">R</button>
-                        <button onClick={() => setArr([...arr,'T'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">T</button>
-                        <button onClick={() => setArr([...arr,'Y'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">Y</button>
-                        <button onClick={() => setArr([...arr,'U'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">U</button>
-                        <button onClick={() => setArr([...arr,'I'])} className="ml-1 bg-key py-3 px-3 text-2xl font-bold text-white rounded-md ">I</button>
-                        <button onClick={() => setArr([...arr,'O'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">O</button>
-                        <button onClick={() => setArr([...arr,'P'])} className="mx-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">P</button>
-                    </div>
-                    
-                    <div className="flex pb-1.5 justify-center">
-                        <button onClick={() => setArr([...arr,'A'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">A</button>
-                        <button onClick={() => setArr([...arr,'S'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">S</button>
-                        <button onClick={() => setArr([...arr,'D'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">D</button>
-                        <button onClick={() => setArr([...arr,'F'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">F</button>
-                        <button onClick={() => setArr([...arr,'G'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">G</button>
-                        <button onClick={() => setArr([...arr,'H'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">H</button>
-                        <button onClick={() => setArr([...arr,'J'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">J</button>
-                        <button onClick={() => setArr([...arr,'K'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">K</button>
-                        <button onClick={() => setArr([...arr,'L'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">L</button>
-                    </div>
+            { done ? null : 
 
-                    <div className="flex justify-center">
-                        <button onClick={submitHandler} className="ml-2 bg-key py-3 px-2 text-xs  font-bold text-white rounded-md ">ENTER</button>
-                        <button onClick={() => setArr([...arr,'Z'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">Z</button>
-                        <button onClick={() => setArr([...arr,'X'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">X</button>
-                        <button onClick={() => setArr([...arr,'C'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">C</button>
-                        <button onClick={() => setArr([...arr,'V'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">V</button>
-                        <button onClick={() => setArr([...arr,'B'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">B</button>
-                        <button onClick={() => setArr([...arr,'N'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">N</button>
-                        <button onClick={() => setArr([...arr,'M'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">M</button>
-                        <button onClick={() => setArr([...arr].slice(0,arr.length-1))} className="ml-1 bg-key py-3 px-2 text-xs mr-2 font-bold text-white rounded-md ">DEL</button>
+                <div className="bg-black ">                                 { /* Keyboard  */ }
+                    <div className="">
+                        <div className="flex pb-1.5 justify-center">
+                            <button onClick={() => setArr([...arr,'Q'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md">Q</button>
+                            <button onClick={() => setArr([...arr,'W'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">W</button>
+                            <button onClick={() => setArr([...arr,'E'])} className="ml-1 bg-key py-3 px-2.5 text-2xl font-bold text-white rounded-md ">E</button>
+                            <button onClick={() => setArr([...arr,'R'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">R</button>
+                            <button onClick={() => setArr([...arr,'T'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">T</button>
+                            <button onClick={() => setArr([...arr,'Y'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">Y</button>
+                            <button onClick={() => setArr([...arr,'U'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">U</button>
+                            <button onClick={() => setArr([...arr,'I'])} className="ml-1 bg-key py-3 px-3 text-2xl font-bold text-white rounded-md ">I</button>
+                            <button onClick={() => setArr([...arr,'O'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">O</button>
+                            <button onClick={() => setArr([...arr,'P'])} className="mx-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">P</button>
+                        </div>
+                        
+                        <div className="flex pb-1.5 justify-center">
+                            <button onClick={() => setArr([...arr,'A'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">A</button>
+                            <button onClick={() => setArr([...arr,'S'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">S</button>
+                            <button onClick={() => setArr([...arr,'D'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">D</button>
+                            <button onClick={() => setArr([...arr,'F'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">F</button>
+                            <button onClick={() => setArr([...arr,'G'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">G</button>
+                            <button onClick={() => setArr([...arr,'H'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">H</button>
+                            <button onClick={() => setArr([...arr,'J'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">J</button>
+                            <button onClick={() => setArr([...arr,'K'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">K</button>
+                            <button onClick={() => setArr([...arr,'L'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">L</button>
+                        </div>
+
+                        <div className="flex justify-center">
+                            <button onClick={submitHandler} className="ml-2 bg-key py-3 px-2 text-xs  font-bold text-white rounded-md ">ENTER</button>
+                            <button onClick={() => setArr([...arr,'Z'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">Z</button>
+                            <button onClick={() => setArr([...arr,'X'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">X</button>
+                            <button onClick={() => setArr([...arr,'C'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">C</button>
+                            <button onClick={() => setArr([...arr,'V'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">V</button>
+                            <button onClick={() => setArr([...arr,'B'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">B</button>
+                            <button onClick={() => setArr([...arr,'N'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">N</button>
+                            <button onClick={() => setArr([...arr,'M'])} className="ml-1 bg-key py-3 px-2 text-2xl font-bold text-white rounded-md ">M</button>
+                            <button onClick={() => setArr([...arr].slice(0,arr.length-1))} className="ml-1 bg-key py-3 px-2 text-xs mr-2 font-bold text-white rounded-md ">DEL</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            }
 
 
         </div>

@@ -12,7 +12,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Front></Front>}></Route>
         <Route path="/game" element={<MainPage></MainPage>}></Route>
-        <Route path="/won" element={<WinPage></WinPage>}></Route>
       </Routes>
     </BrowserRouter>
   )

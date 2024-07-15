@@ -12,10 +12,7 @@ export default function WinPage(){
                     Congratulations you won the game :)
                 </div>
                 <div className="text-white font-bold text-4xl text-center py-20">
-                    The Word was :- MANGO
-                </div>
-                <div className="text-center">
-                    <button onClick={() => navigate("/game")} className="border-2 rounded-full p-5 text-white font-bold text-3xl bg-slate-700 hover:bg-slate-900">See Your tries</button>
+                    The Word was :- 
                 </div>
             </div>
         </div>
