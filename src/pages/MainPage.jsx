@@ -1,7 +1,7 @@
 import { useState , useRef} from "react";
 import Header from "./Header";
 
-const word = "SLICE";
+const word = "HINGE";
 
 export default function MainPage(){
 
