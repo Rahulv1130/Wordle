@@ -1,7 +1,7 @@
 import { useState , useRef} from "react";
 import Header from "./Header";
 
-const word = "HINGE";
+const word = "CRUST";
 
 export default function MainPage(){
 
@@ -473,7 +473,7 @@ export default function MainPage(){
             }
 
             if(!(word[0] === arr[0] && word[1] === arr[1] && word[2] === arr[2] && word[3] === arr[3] && word[4] === arr[4] )){
-                alert("Sorry Better Luck Next Time :(");
+                alert(`Sorry Better Luck Next Time :(. \n The Word was :- ${word}`);
                 setDone(true);
             }
         }
