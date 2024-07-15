@@ -2,7 +2,7 @@ import { useState , useRef} from "react";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 
-const word = "MANGO";
+const word = "SLICE";
 
 export default function MainPage(){
 
@@ -43,6 +43,10 @@ export default function MainPage(){
     const navigate = useNavigate();
 
     function submitHandler(){
+
+        if(word[0] === arr[0] && word[1] === arr[1] && word[2] === arr[2] && word[3] === arr[3] && word[4] === arr[4] ){
+            navigate("/won")
+        }
 
         if(count == 0){
             ref00.current.value = arr[0];
@@ -471,9 +475,7 @@ export default function MainPage(){
             setCount(count+1);
         }
 
-        if(word[0] === arr[0] && word[1] === arr[1] && word[2] === arr[2] && word[3] === arr[3] && word[4] === arr[4] ){
-            navigate("/won")
-        }
+        
     }
     
 
@@ -531,11 +533,11 @@ export default function MainPage(){
                     </div>
 
                     <div className="flex pb-1.5 justify-center text-white font-bold text-4xl text-center">
-                        <div ref={ref40} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[0] : (count > 5 ) ? ref50.current.value : null }</div>
-                        <div ref={ref41} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[1] : (count > 5 ) ? ref51.current.value : null }</div>
-                        <div ref={ref42} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[2] : (count > 5 ) ? ref52.current.value : null }</div>
-                        <div ref={ref43} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[3] : (count > 5 ) ? ref53.current.value : null }</div>
-                        <div ref={ref44} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[4] : (count > 5 ) ? ref54.current.value : null }</div>
+                        <div ref={ref50} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[0] : (count > 5 ) ? ref50.current.value : null }</div>
+                        <div ref={ref51} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[1] : (count > 5 ) ? ref51.current.value : null }</div>
+                        <div ref={ref52} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[2] : (count > 5 ) ? ref52.current.value : null }</div>
+                        <div ref={ref53} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[3] : (count > 5 ) ? ref53.current.value : null }</div>
+                        <div ref={ref54} className="border-2 w-16 h-16 ml-1.5 border-box p-3" >{ (count == 5) ? arr[4] : (count > 5 ) ? ref54.current.value : null }</div>
                     </div>
                 </div>
             </div>
